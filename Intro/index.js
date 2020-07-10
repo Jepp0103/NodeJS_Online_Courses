@@ -23,3 +23,5 @@ const interestRate = 0.3; //Can't change the value , hence type error.
 // interestRate = 1;
 console.log(interestRate);
 
+
+
