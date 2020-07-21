@@ -1,0 +1,17 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "hi",
+  "main": "restApi.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "nodemon restApi.js 3000"
+  },
+  "author": "Jeppe N. Dyekjær",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "joi": "^14.3.0",
+    "nodemon": "^2.0.4"
+  }
+}
