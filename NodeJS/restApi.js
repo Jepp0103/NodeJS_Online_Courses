@@ -5,7 +5,7 @@ const app = express();
 //Middleware
 app.use(express.json());
 
-const courses = [ 
+let courses = [ 
     { id: 1, name: "Math" },
     { id: 2, name: "English" },
     { id: 3, name: "Gym" },
@@ -59,8 +59,11 @@ app.put("/api/courses/:id", (req, res) => {
     //Updating the course
     course.name = req.body.name;
     res.send(course);
-    
+});
 
+app.delete("/api/courses/:id", (req, res) => {
+    courses = courses.filter(course => course.id !== parseInt(req.params.id));
+    return res.send({ response: courses })    
 });
 
 //Validate
