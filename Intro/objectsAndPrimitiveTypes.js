@@ -109,3 +109,52 @@ personTwo.walk();
 
 const walk = personTwo.walk.bind(personTwo);
 console.log("Walk object", walk());
+
+
+const personHuman = {
+    firstName: "Jeppe", 
+    lastName: "Nannestad",
+    hobbies: ["Programming", "Gaming", "Tennis"],
+    address: {
+        street: "Nørrebrogade",
+        number: 66,
+        city: "Copenhagen"
+    }
+}
+personHuman.hobbies.push("Snowboarding");
+
+console.log(personHuman);
+
+console.log("Only street: ", personHuman.address.street);
+console.log(personHuman.hobbies[2]);
+
+//Pulling out elements from objects
+const { firstName, lastName } = personHuman;
+
+console.log(firstName, lastName);
+
+const tasks = [
+    {
+        id: 1,
+        text: "Shopping",
+        taskDone: false
+    },
+    {
+        id: 2,
+        text: "Cleaning",
+        taskDone: true
+    },
+    {
+        id: 3,
+        text: "Eating",
+        taskDone: false
+    }
+]
+
+console.log(tasks[2].text);
+
+for(i = 0; i < tasks.length; i++) {
+    if (tasks[i].text == "Cleaning") {
+        console.log("Id: ", tasks[i].id);
+    }
+}
