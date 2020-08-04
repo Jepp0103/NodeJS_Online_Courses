@@ -12,3 +12,7 @@ let person = {
 };
 console.log(person);
 console.log("Index 1 in hobbies: ", person.hobbies[0]);
+
+selectedColors.splice(1,1);
+
+console.log("green removed", selectedColors);

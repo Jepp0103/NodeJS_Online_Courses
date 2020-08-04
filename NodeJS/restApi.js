@@ -2,6 +2,7 @@ const express = require("express");
 const Joi = require("joi"); //returning a class
 const app = express();
 
+
 //Middleware
 app.use(express.json());
 
@@ -76,4 +77,124 @@ function validateCourse(course) {
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => { console.log(`Listening on port ${port}...`);
+});
+
+
+let fruits =  [
+    {
+        id: 1,
+        name: "Banana",
+        color: "Yellow",
+        size: "Small"
+    }, 
+    {
+        id: 2,
+        name: "Water melon",
+        color: "Green",
+        size: "Big"
+    },
+    {
+        id: 3,
+        name: "Apple",
+        color: "Red",
+        size: "Small"
+    }
+]
+
+app.get("/api/fruits", (req, res) => {
+    res.send(fruits);
+});
+
+app.get("/api/fruits/:id", (req, res) => {
+    let specificFruit = fruits.find(fruit => fruit.id === parseInt(req.params.id));
+    res.send(specificFruit);
+});
+
+app.post("/api/fruits", (req, res) => {
+    let fruit = {
+        id: fruits.length + 1,
+        name: req.body.name,
+        color: req.body.color,
+        size: req.body.size
+    };
+
+    fruits.push(fruit);
+
+    res.send(fruit);
+});
+
+app.put("/api/fruits/:id", (req, res) => {
+    let fruit = fruits.find(fruit => fruit.id === parseInt(req.params.id));
+
+    console.log(fruit);
+
+    fruit.name = req.body.name;
+    fruit.color = req.body.color;
+    fruit.size = req.body.size;
+
+    res.send(fruit);
+});
+
+app.delete("/api/fruits/:id", (req, res) => {
+    fruits = fruits.filter(fruit => fruit.id !== parseInt(req.params.id)); //Not equal to the parameter id
+    res.send(fruits);
+});
+
+
+let dishes = [
+    {
+        id: 1,
+        name: "Spaghetti bolognese",
+        price: "50 DKK",
+        warm: true
+    },
+    {
+        id: 2,
+        name: "Hamburger",
+        price: "100 DKK",
+        warm: true
+    },
+    {
+        id: 3,
+        name: "Ice cream",
+        price: "25 DKK",
+        warm: false
+    }
+]
+
+app.get("/dishes", (req, res) => {
+    res.send(dishes);
+});
+
+app.get("/dishes/:id", (req, res) => {
+    let dish = dishes.find(d => d.id === parseInt(req.params.id));
+    res.send(dish);
+});
+
+app.post("/dishes", (req, res) => {
+    let newDish = {
+        id: dishes.length + 1,
+        name: req.body.name, 
+        price: req.body.price,
+        warm: req.body.warm
+    };
+
+    dishes.push(newDish);
+
+    res.send(dishes);
+});
+
+app.put("/dishes/:id", (req, res) => {
+    let dish = dishes.find(d => d.id === parseInt(req.params.id));
+
+    dish.name = req.body.name;
+    dish.price = req.body.price;
+    dish.warm = req.body.warm;
+
+    res.send(dish);
+});
+
+app.delete("/dishes/:id", (req, res) => {
+    dishes = dishes.filter(d => d.id !== parseInt(req.params.id));
+    res.send(dishes);
 });

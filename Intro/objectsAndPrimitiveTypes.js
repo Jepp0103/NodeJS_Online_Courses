@@ -133,28 +133,3 @@ const { firstName, lastName } = personHuman;
 
 console.log(firstName, lastName);
 
-const tasks = [
-    {
-        id: 1,
-        text: "Shopping",
-        taskDone: false
-    },
-    {
-        id: 2,
-        text: "Cleaning",
-        taskDone: true
-    },
-    {
-        id: 3,
-        text: "Eating",
-        taskDone: false
-    }
-]
-
-console.log(tasks[2].text);
-
-for(i = 0; i < tasks.length; i++) {
-    if (tasks[i].text == "Cleaning") {
-        console.log("Id: ", tasks[i].id);
-    }
-}
