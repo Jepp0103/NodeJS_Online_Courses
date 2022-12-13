@@ -10,7 +10,7 @@
   "author": "Jeppe N. Dyekjær",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "joi": "^14.3.0",
     "nodemon": "^2.0.4"
   },
